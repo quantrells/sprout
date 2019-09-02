@@ -1,33 +1,106 @@
-.App {
-  text-align: center;
+p { 
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
+  margin: 64px auto;
+  width: 900px;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.timeline-bar {
+  width: 100%;
+  height: 2px;
+  background-color: grey;
+  border-radius: 2px;
+}
+
+.card {
+  width: 300px;
+  height: 220px;
+  background-color: white;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 32px 24px;
+  position: relative;
+  z-index: 3;
+}
+
+.profile-pic {
+  width: 28px;
+  height: 28px;
+  background: #eee;
+  border-radius: 28px;
+  border: 4px solid #ffffff;
+  position: absolute;
+  top: -7px;
+  left: -18px;
+  /* box-shadow: -1px 1px 9px 1px rgba(0, 0, 0, 0.1); */
+}
+
+.pos-dot {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  bottom: -10px;
+  margin-top: -11px;
+  z-index: 5;
 }
 
-.App-link {
-  color: #61dafb;
+.timeline-wrapper {
+  margin: 0 5%;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pos-dot .dot {
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 10px;
+  /* padding: 5px; */
+  box-shadow: 0 0 0px 5px #0080005e;
+}
+
+.bar {
+  display: block;
+  height: 125px;
+  width: 2px;
+  background-color: green;
+}
+
+.stepsWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step {
+  text-align: center;
+  width: 100px;
+}
+
+.step:first-of-type {
+  transform: translateX(-40px);
+}
+
+.step:last-of-type {
+  transform: translateX(50px);  
+}
+
+.step .dot {
+  width: 6px;
+  height: 6px;
+  background-color: gray;
+  border-radius: 2px;
+  position: relative;
+  top: -4px;
 }
