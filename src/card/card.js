@@ -1,20 +1,56 @@
-import React from 'react';
+
+import React, { fragments } from 'react';
 import styled from 'styled-components'
+
+import StyledButton from '../components/button.js'
+
+const StyledParagraph = styled.p`
+  font-size: 16px;
+  margin-bottom: 21px;
+  font-weight: ${props => (props.type === 'strong' ? "600" : "inherit")};
+  & > span {
+    background-color: rgba(248, 231, 28, .1);
+  }
+`
+
+const InnerWrapper = styled.div`
+  padding: 0 30px;
+  margin-top: 40px
+`
+
+const ButtonWrapper = styled.div`
+`
+
+const Paragraph = ({ type, children }) => (
+  <StyledParagraph type={type}>
+    {children}
+  </StyledParagraph>
+)
 
 class Card extends React.PureComponent {
   render() {
+    const {
+      step,
+    } = this.props
+
     return (
       <div className="card">
         <div className="profile-pic"></div>
-        <div className="card-inner">
-          <p className="strong">Thanks for sharing that.</p>
-          <p>Let’s start with identifying the services you want to provide to your customers.</p>
-          <p><span className="highlight">We are suggesting this action because you were uncertain on the services you want to provide.</span></p>
-          <div className="buttons">
-            <a href="#" className="btn">Do it now</a>
-              <a href="#" className="btn">Later</a>
-          </div>
-        </div>
+        <InnerWrapper>
+          {
+            step.copy.map(item =>
+              (
+                <Paragraph type={item.type}>
+                  {
+                    item.type === 'highlight'
+                      ? <span>{item.text}</span>
+                      : item.text
+                  }
+                </Paragraph>
+              )
+            )}
+          { step.buttons.map(btn => <StyledButton {...btn} />) }
+        </InnerWrapper>
       </div>
     )
   }
