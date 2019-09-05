@@ -15,8 +15,6 @@ const Wrapper = styled.div`
 
 class Timeline extends React.PureComponent {
   render() {
-    console.log(this.props)
-    
     return (
       <Wrapper> 
         <Card />

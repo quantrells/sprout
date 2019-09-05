@@ -5,10 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux'
-import configureStore, { initialState } from './store';
+import configureStore from './store';
 
 ReactDOM.render(
- <Provider store={configureStore(initialState)}>
+ <Provider store={configureStore()}>
   <App />
  </Provider>,
  document.getElementById('root')

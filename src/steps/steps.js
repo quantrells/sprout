@@ -27,9 +27,11 @@ const Dot = styled.div`
   height: ${props => (props.active ? "20px" : "6px")};
   background-color: ${props => (props.active ? "#2CA01C" : "#BABEC5")}; ;
   border-radius: ${props => (props.active ? "10px" : "4px")};
-  top: ${props => (props.active ? "-10px" : "-13px")};
+  top: ${props => (props.active ? "-10px" : "-3px")};
   display: inline-block;
   box-shadow:  ${props => (props.active ? "0 0 0 5px rgba(44,160,28,.3)" : "0 0 0 6px #FFF;")}; 
+  margin-bottom: ${props => (props.active ? "0" : "14px")};
+  transition: all .5s ease-in-out;
 `
 
 const Num = styled.p`
@@ -45,28 +47,18 @@ const Title = styled.p`
   font-weight: 600;
 `
 
-class Steps extends React.PureComponent {
-  render() {
-    return(
-      <Wrapper>
-        <Step className="step active">
-          <Dot active/>
-          <Num>Step 1</Num>
-          <Title>Title will go here later on</Title>
+const Steps = ({steps, currentStepId}) => (
+  <Wrapper>
+    {Object.keys(steps).map((key) => 
+      (
+        <Step key={key}>
+          <Dot active={ key == currentStepId }/>
+          <Num>Step {key}</Num>
+          <Title>{ steps[key].title }</Title>
         </Step>
-        <Step>
-          <Dot/>
-          <Num>Step 2</Num>
-          <Title>Title will go here later on!</Title>
-        </Step>
-        <Step>
-          <Dot/>
-          <Num>Step 3</Num>
-          <Title>Title will go here later on</Title>
-        </Step>
-      </Wrapper>
-    )
-  }
-}
+      )
+    )}
+  </Wrapper>
+)
 
-export default Steps
+export default Steps;

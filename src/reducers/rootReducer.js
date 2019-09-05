@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
+
+import currentStep from './currentStep';
 import steps from './steps';
+import assistance from './assistance';
 
 export default combineReducers({
- steps
+ currentStep,
+ steps,
+ assistance,
 });
