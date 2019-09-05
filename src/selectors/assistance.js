@@ -4,5 +4,5 @@ export const getAssistance = state => state.assistance
 
 export const getAssistanceImg = createSelector(
   getAssistance,
-  (assistance) => assistance.img || ''
+  (assistance) => assistance.img
 )

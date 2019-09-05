@@ -50,15 +50,14 @@ const Paragraph = ({ type, children }) => (
   </StyledParagraph>
 )
 
-const Card = ({step, img}) => {
-  return (
+const Card = ({step, img}) => (
   <Wrapper>
     <ProfilePic img={img}/>
     <InnerWrapper>
       {step &&
         step.copy.map(item =>
           (
-            <Paragraph type={item.type}>
+            <Paragraph type={item.type} key={item.id}>
               {
                 item.type === 'highlight'
                   ? <span>{item.text}</span>
@@ -67,9 +66,9 @@ const Card = ({step, img}) => {
             </Paragraph>
           )
         )}
-      {step && step.buttons.map(btn => <StyledButton {...btn} />) }
+      {step && step.buttons.map(btn => <StyledButton {...btn} key={ btn.id }/>) }
     </InnerWrapper>
   </Wrapper>
-)}
+)
 
-export default Card;
+export default Card

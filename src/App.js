@@ -12,7 +12,7 @@ const App = ({dispatch}) => {
       <Timeline />
       
       <button 
-        style={{margin: '24px auto'}}
+        style={{margin: '24px auto', display: 'block'}}
         onClick={() => dispatch({ type: 'NEXT_STEP' })}
       >
         Demo Only

@@ -13,18 +13,26 @@ const Wrapper = styled.div`
   position: relative;
 `
 
-class Timeline extends React.PureComponent {
-  render() {
-    return (
-      <Wrapper> 
-        <Card />
-        <div className="timeline-wrapper">
-          <div className="timeline-bar"></div>
-          <Steps />
-        </div>
-      </Wrapper>
-    )
-  }
-}
+const InnerWrapper = styled.div` 
+  margin: 72px 5%;
+  position: relative;
+`
+
+const Bar = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #BABEC5;
+  border-radius: 2px;
+`
+
+const Timeline = () => (
+  <Wrapper> 
+    <Card />
+    <InnerWrapper>
+      <Bar />
+      <Steps />
+    </InnerWrapper>
+  </Wrapper>
+)
 
 export default Timeline;

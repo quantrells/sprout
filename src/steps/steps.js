@@ -61,4 +61,4 @@ const Steps = ({steps, currentStepId}) => (
   </Wrapper>
 )
 
-export default Steps;
+export default Steps
